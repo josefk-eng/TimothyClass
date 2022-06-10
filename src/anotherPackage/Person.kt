@@ -1,15 +1,15 @@
 package anotherPackage
 class Person{
     lateinit var firstName:String
-    var age:Int = 0 //property
+    var age:Int = 0
     val lastName:String = ""
 
-    constructor(){          //Primary Constructor
+    constructor(){
         println("This is a primary constructor")
     }
 
-    constructor(firstName:String):this(){    //Secondary Constructor
-        this.firstName = firstName
+    constructor(fName: String):this(){
+        firstName = fName
         println("This is a Secondary constructor")
     }
 
@@ -25,12 +25,12 @@ class Person{
         return this.age<18
     }
 
+    fun someRandomFunction(){
+        println("$firstName")
+    }
+
 }
 
-
-class UserProfile(val username:String, val password:String)
-val profile = UserProfile("josef", "hghjaghjd")
-val person = Person(0)
 
 
 
