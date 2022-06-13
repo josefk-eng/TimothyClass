@@ -77,22 +77,38 @@ class Functions {
         //do something with the functional parameter
     }
 
-    //other functions -> infix, inline, lambda, extension, higher order functions and so on
+    //other functions -> infix, inline, lambda, extension, operator functions and so on
+
+    fun String.myExtensionFunction(param1: String, param2: String): String{
+        return this + param1 + param2
+    }
+
+    infix fun Int.myInfixFunction(a: Int):Int{
+        return this.plus(a)
+    }
+
+    operator fun Int.plus(b:Int): Int{
+        return this + b
+    }
+
+    fun myInlineFunction(param1: String, param2: ()->Unit){
+        param2()
+    }
+
 }
+
 
 fun main() {
     val fn = Functions()
     fn.myVariableArgumentFunctions("jkfekjhkewl",1,2,3,4,5)
-    fn.myFunctionThatTakesAnotherFunctionAsArgument(myFunction = {
-
-    })
-    fn.apiCall(sucess = {result->
-        println("The api is successful and the result is $result")
-    }, failure = {
-        println("Oops, the call has failed ${it.message}")
-    })
-
-
+//    fn.myFunctionThatTakesAnotherFunctionAsArgument(myFunction = {
+//
+//    })
+//    fn.apiCall(sucess = {result->
+//        println("The api is successful and the result is $result")
+//    }, failure = {
+//        println("Oops, the call has failed ${it.message}")
+//    })
 
 
 }

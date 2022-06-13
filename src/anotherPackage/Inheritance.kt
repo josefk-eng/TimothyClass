@@ -1,4 +1,4 @@
-//package anotherPackage
+package anotherPackage
 //
 //open class Animal(){
 //    open fun makeSound(){

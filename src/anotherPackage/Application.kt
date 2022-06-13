@@ -6,3 +6,4 @@ fun main(args: Array<String>){
     val person = Person(0)
     person.someRandomFunction()
 }
+
