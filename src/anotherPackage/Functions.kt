@@ -91,11 +91,55 @@ class Functions {
         return this + b
     }
 
-    fun myInlineFunction(param1: String, param2: ()->Unit){
+    inline fun myInlineFunction(param1: String,param2: ()->Unit){
         param2()
     }
 
 }
+
+fun String.concat(anotherString: String): String{
+    return this + " : " +anotherString
+}
+
+class PersonOne(val name:String, val age:Int){
+
+}
+
+infix fun Int.plus(a: Int):Int{
+    return this + a
+}
+
+fun PersonOne.printName(){
+    println(this.name)
+}
+
+infix fun PersonOne.isOlderThan(anotherPersonOne: PersonOne):Boolean{
+    return this.age > anotherPersonOne.age
+}
+
+
+
+class Point(val x:Int, val y:Int){
+    operator fun minus(point: Point): Point{
+        return Point(-point.x, -point.y)
+    }
+}
+
+class Login{
+    val name = ""
+
+    companion object{
+        val BASE_URL = ""
+        operator fun invoke(param1: String):String{
+            println("Hello there")
+            return ""
+        }
+    }
+}
+
+
+
+
 
 
 fun main() {
@@ -109,6 +153,27 @@ fun main() {
 //    }, failure = {
 //        println("Oops, the call has failed ${it.message}")
 //    })
+
+
+    val stringOne = "stringOne"
+    val stringTwo = "stringTwo"
+    val stringThree = stringOne.concat(stringTwo)
+//    println(stringThree)
+    val joseph = PersonOne("josef", 78)
+    val Jimmy = PersonOne("Jimmy", 50)
+    joseph.printName()
+
+    val isJosefOlderThanJimmy = joseph isOlderThan Jimmy
+
+    var age = 8
+    val increment  = age.plus(2)
+    val point = Point(10, 20)
+    point.minus(point)
+//
+//    val login = Login()
+//    login.name
+    val result = Login(param1 = "")
+
 
 
 }
